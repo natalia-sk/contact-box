@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete group</title>
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>{{ info }}</legend>
+            <input type="submit" name="delete" value="Yes">
+            <input type="submit" name="delete" value="No">
+        </fieldset>
+    </form><p><button onclick="window.location.href='/groups';">Back</button></p>
+</body>
+</html>

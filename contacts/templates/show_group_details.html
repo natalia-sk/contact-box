@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group details</title>
+</head>
+<body>
+    <div>
+        <h3>{{  info }}</h3>
+        <p>Name: {{ name }}</p>
+        <p>Group members:<br><ol>{{ members|safe }}</ol></p>
+        <p><button onclick="window.location.href='/groups';">Back</button> <button onclick="window.location.href='/modify_group/{{ group_id }}';">Edit</button></p>
+    </div>
+</body>
+</html>

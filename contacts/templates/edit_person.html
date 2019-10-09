@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit contact</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="3">
+                <h3>Edit contact:</h3>
+                <p>Name: {{ name }}</p>
+                <p>Surname: {{ surname }}</p>
+                <p>Description: {{ description }}</p>
+                <p>Address:<br>{{ address|safe }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                <! -- edit person details -->
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><b>{{ info }}</b></legend>
+                        <br>
+                        <label>Name:<br>
+                            <input type="text" name="name" value={{ name }}>
+                        </label><br><br>
+                        <label>Surname:<br>
+                            <input type="text" name="surname" value={{ surname }}>
+                        </label><br><br>
+                        <label>Description:<br>
+                            <input type="text" name="description" value={{ description }}>
+                        </label><br><br>
+                        <p><input type="submit" value="Edit"></p>
+                    </fieldset>
+                </form>
+            </td>
+            <td>
+                <! -- add phone number -- >
+                <form action="/modify/{{ person_id }}/addPhone" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><b>Add phone number</b></legend>
+                        <label>Phone number:<br>
+                            <input type="text" name="phone_number" required="required">
+                        </label><br>
+                        <label>Type:<br>
+                            <input type="text" name="phone_type" placeholder="optional">
+                        </label>
+                        <br><input type="submit" value="Add">
+                    </fieldset>
+                </form>
+            </td>
+            <td>
+                <! -- delete phone number -- >
+                <form action="/modify/{{ person_id }}/phoneDeleted" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><b>Delete phone number</b></legend>
+                        <label><br>
+                            <select name="phone_list">
+                                {{ phone_options|safe }}
+                            </select><br><br>
+                            <p><input type="submit" value="Delete"></p>
+                        </label>
+                    </fieldset>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <! -- add email -- >
+                <form action="/modify/{{ person_id }}/addEmail" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><b>Add email</b></legend>
+                        <label>Email:<br>
+                            <input type="text" name="email" required="required">
+                        </label><br>
+                        <label>Type:<br>
+                            <input type="text" name="email_type" placeholder="optional">
+                        </label>
+                        <br><input type="submit" value="Add">
+                    </fieldset>
+                </form>
+            </td>
+            <td>
+                <! -- delete email -- >
+                <form action="/modify/{{ person_id }}/emailDeleted" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><b>Delete e-mail</b></legend>
+                        <label><br>
+                            <select name="email_list">
+                                {{ email_options|safe }}
+                            </select><br><br>
+                            <p><input type="submit" value="Delete"></p>
+                        </label>
+                    </fieldset>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan ="2">
+                <! -- add new address -- >
+                <form action="/modify/{{ person_id }}/addAddress" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><b>Add new address/Change address</b></legend>
+                        <label>City:<br>
+                            <input type="text" name="city" required="required">
+                        </label><br>
+                        <label>Street:<br>
+                            <input type="text" name="street" required="required">
+                        </label><br>
+                        <label>house:
+                            <input type="number" name="house_number" required="required" min="1">
+                        </label><br>
+                        <label>flat:
+                            <input type="number" name="flat_number" min="1" placeholder="optional">
+                        </label>
+                        <p><input type="submit" value="Add"></p>
+                    </fieldset>
+                </form>
+            </td>
+            <td rowspan="2">
+                <! -- delete address -- >
+                <form action="/modify/{{ person_id }}/addressDeleted" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><b>Delete address</b></legend>
+                        <label>
+                            Would you like to delete {{ name }}'s address?
+                            <p>{{ address | safe }}</p><br>
+                            <p><input type="submit" name="delete_address" value="Yes, delete"></p>
+                        </label>
+                    </fieldset>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <! -- add existing address -->
+                <form action="/modify/{{ person_id }}/addExistingAddress" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><b>Add/Change by picking existing address</b></legend>
+                        <label>
+                            <select name="address_list">
+                                {{ address_options|safe }}
+                            </select>
+                            <p><input type="submit" value="Add"></p>
+                        </label>
+                    </fieldset>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <! -- add to group -- >
+                <form action="/modify/{{ person_id }}/addToGroup" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><b>Add to group</b></legend>
+                        <label>
+                            <select name="group_list">
+                                {{ group_options|safe }}
+                            </select>
+                            <p><input type="submit" value="Add"></p>
+                        </label>
+                    </fieldset>
+                </form>
+            </td>
+        </tr>
+    </table>
+        <p><button onclick="window.location.href='/';">Back</button></p>
+</body>
+</html>

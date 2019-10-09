@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your groups</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Group name</th>
+            <th> </th>
+        </tr>
+        <tr>
+            {{ group_list|safe }}
+        </tr>
+    </table>
+    <p><button onclick="window.location.href='new_group';">Add new group</button>
+        <button onclick="window.location.href='/';">Back</button>
+    </p>
+</div>
+</body>
+</html>

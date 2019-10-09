@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add contact</title>
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>{{ info }}</legend>
+            <label>Name:<br>
+                <input type="text" name="name" required="required">
+            </label><br>
+            <label>Surname:<br>
+                <input type="text" name="surname" required="required">
+            </label><br>
+            <label>Description:<br>
+                <input type="text" name="description">
+            </label>
+            <p><input type="submit" value="Add"></p>
+        </fieldset>
+    </form><p><button onclick="window.location.href='/';">Back</button></p>
+</body>
+</html>

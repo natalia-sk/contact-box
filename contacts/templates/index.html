@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Box Full of Contacts</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Contact</th>
+            <th> </th>
+        </tr>
+        <tr>
+            {{ person_list|safe }}
+        </tr>
+    </table>
+    <p><button onclick="window.location.href='new';">Add new contact</button> <button onclick="window.location.href='/groups';">Your groups</button></p>
+</div>
+</body>
+</html>

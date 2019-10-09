@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact details</title>
+</head>
+<body>
+    <div>
+        <h3>{{  info }}</h3>
+        <p>Name and surname: {{ name_and_surname }}</p>
+        <p>Description: {{ description }}</p>
+        <p>Phone number: <ol>{{ phone|safe }}</ol></p>
+        <p>E-mail: <ol>{{ email|safe }}</ol></p>
+        <p>Address:<br>{{ address|safe }}</p>
+        <p>Groups:<ol>{{ group_list|safe }}</ol></p>
+        <p><button onclick="window.location.href='/';">Back</button> <button onclick="window.location.href='/modify/{{ person_id }}';">Edit</button></p>
+    </div>
+</body>
+</html>

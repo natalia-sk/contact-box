@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit contact</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td rowspan="2">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>{{ info }}</legend>
+                        <p>Name: {{ name }}</p>
+                        <label>Name:<br>
+                            <input type="text" name="name">
+                        </label>
+                        <p><input type="submit" value="Edit"></p>
+                    </fieldset>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <p><button onclick="window.location.href='/groups';">Back</button></p>
+</body>
+</html>
