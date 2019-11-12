@@ -20,7 +20,7 @@ class Address(models.Model):
     city = models.CharField(max_length=64)
     street = models.CharField(max_length=64)
     house = models.PositiveSmallIntegerField()
-    flat = models.PositiveSmallIntegerField(null=True)
+    flat = models.PositiveSmallIntegerField(null=True, default=None)
 
     class Meta:
         unique_together = ('city', 'street', 'house', 'flat')
