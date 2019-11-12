@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from contacts.views import, ShowAll, AddNewPerson, EditPerson, DeletePerson, ShowDetails, AddAddress,
-    AddExistingAddress, DeleteAddress, AddToGroup, AddPhone, DeletePhone, AddEmail, DeleteEmail, ShowAllGroups,
-    AddNewGroup, EditGroup, DeleteGroup, ShowGroupDetails
+from contacts.views import ShowAll, AddNewPerson, EditPerson, DeletePerson, ShowDetails, AddAddress, AddExistingAddress, \
+    DeleteAddress, AddToGroup, AddPhone, DeletePhone, AddEmail, DeleteEmail, ShowAllGroups, AddNewGroup, EditGroup, \
+    DeleteGroup, ShowGroupDetails
 
 urlpatterns = [
     path('', ShowAll.as_view(), name='all-contacts'),
