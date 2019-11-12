@@ -111,7 +111,8 @@ class AddAddress(View):
             new_address = Address.objects.create(city=city, street=street, house=house_number)
             person.address_id = new_address.id
             person.save()
-        ctx = {'info': 'Address added to the contact'}
+        ctx = {'info': 'Address added to the contact',
+               'person_id': person_id}
         return render(request, 'edit_person_add_else.html', context=ctx)
 
 
@@ -122,7 +123,8 @@ class AddExistingAddress(View):
         new_address = Address.objects.get(id=address_id)
         person.address_id = new_address.id
         person.save()
-        ctx = {'info': 'Address added to the contact'}
+        ctx = {'info': 'Address added to the contact',
+               'person_id': person_id}
         return render(request, 'edit_person_add_else.html', context=ctx)
 
 
@@ -160,7 +162,8 @@ class AddEmail(View):
         email = request.POST.get('email')
         email_type = request.POST.get('email_type')
         new_email = Email.objects.create(email=email, type=email_type, person_id=person_id)
-        ctx = {'info': f'E-mail added to the contact: {new_email.email}'}
+        ctx = {'info': f'E-mail added to the contact: {new_email.email}',
+               'person_id': person_id}
         return render(request, 'edit_person_add_else.html', context=ctx)
 
 
@@ -273,5 +276,6 @@ class AddToGroup(View):
         group_id = request.POST.get('group_list')
         group = Group.objects.get(id=group_id)
         person.group.add(group)
-        ctx = {'info': 'Contact added to the group'}
+        ctx = {'info': 'Contact added to the group',
+               'person_id': person_id}
         return render(request, 'edit_person_add_else.html', context=ctx)
