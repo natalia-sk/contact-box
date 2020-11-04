@@ -1,5 +1,5 @@
 # contact-box
-The application stores a user's contact details , with phone numbers, e-mails and home address. It allows to create contact groups. User can add, edit and delete individual contacts and groups (without deleting the contacts assigned to the group).
+The application stores user's contact details, with phone numbers, e-mails and home address. It allows to create contact groups. User can add, edit and delete individual contacts and groups (without deleting the contacts assigned to the group).
 
 ## Technologies
 * Python 3.8.5
